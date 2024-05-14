@@ -11,12 +11,14 @@ const Formulario = styled.form`
 	@media (max-width: 800px){
 		grid-template-columns: 1fr;
 	}
+	
 `
 const Tabla = styled.table`
 	display: inline-block;
-	float: rigth;
-	position: absolute;
+	float: left;
+	position: relative;
 	z-index: 90;
+	margin: 0.3em 4em 1em 1em;
 `;
 
 /*const Formulario = styled.form`
@@ -31,9 +33,8 @@ const Tabla = styled.table`
 
  const Label = styled.label`
 	width: 7%;
- 	
 	font-weight: 500;
-	padding: 5px 10px;
+	padding: .25em .25em;
 	min-height: 20px;
 	cursor: pointer;
 	${props => props.valido === 'false' && css`
@@ -50,12 +51,12 @@ const GrupoInput = styled.div`
 
 const Inputs = styled.input`
 	display: inline;
-	width: 25%;
+	width: 20%;
 	background: #f8f8f8;
 	border-radius: 3px;
 	height: 35px;
 	line-height: 45px;
-	padding: 0 40px 0 10px;
+	padding: 0 30px 0 10px;
 	transition: .3s ease all;
 	border: 3px solid transparent;
 	&:focus {

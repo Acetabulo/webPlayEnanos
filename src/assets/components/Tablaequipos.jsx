@@ -1,37 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import RecuperarRegistros from './RecuperarRegistros'
-//import RecuperarRegistros from './RecuperarRegistros'
-//import { Tabla } from './Formats';
-
-const Tablaequipos = () => {
-  
-  const [teams, setTeams] = useState(RecuperarRegistros());
-  useEffect(() => {
-    if (teams != []) {
-      setTeams()
-      
-    }
-    }, [])
-  
-  
-  /*function ListaEquipos(props){
-
-  }*/
-  
-  
-  /*const teams = RecuperarRegistros();
-  console.log(teams);
- 
- /* const ListaEquipos = tablaEquipos.map(function(equipo){
-    return equipo.eq;
-  });*/
-  //console.log(ListaEquipos)
-    return (
-        <div>
-          
-        </div>
-    )
-    
-}
-
-export default Tablaequipos
+import React, { useContext } from "react";
+import { Tabla } from "../css/Formats";
+import { FilaEquipos } from "./FilaEquipos";
+import { equiposContext } from "./Contextos";
+const Tablaequipos= () => {
+  const {teams} = useContext(equiposContext);
+  return (
+      <Tabla>
+        <thead>
+          <tr>
+            <th>Equipo</th>
+            <th>Jugador</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+          teams.map((team) => (
+            <FilaEquipos
+              team={team}
+              key={team.equipo}/>
+          ))
+          }
+        </tbody>
+      </Tabla>
+  );
+};
+export default Tablaequipos;
