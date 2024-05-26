@@ -1,18 +1,18 @@
 import React from "react";
-export const FilaEquipos = ({team}) => {
+import {Tr, Td} from '../css/Formats'
+export const FilaEquipos = ({team, pinEquipo}) => {
     return (
-      <tr>
-        <td>
+      <Tr>
+        <Td>{team.equipo}</Td>
+        <Td>{team.jugador}</Td>
+        <Td>
           <input
-
             type='checkbox'
             checked={team.pin}
-            onChange={() => console.log("cambiando")}
+            onChange={() => pinEquipo(team)}
           />
-          {team.equipo}
-        </td>
-        <td>{team.jugador}</td>
-      </tr>
+        </Td>
+      </Tr>
     );
   };
   

@@ -1,23 +1,25 @@
 import React, { useContext } from "react";
-import { Tabla } from "../css/Formats";
+import { Tabla,Tr,Th } from "../css/Formats";
 import { FilaEquipos } from "./FilaEquipos";
 import { equiposContext } from "./Contextos";
 const Tablaequipos= () => {
-  const {teams} = useContext(equiposContext);
+  const {teams, pinEquipo} = useContext(equiposContext);
   return (
       <Tabla>
         <thead>
-          <tr>
-            <th>Equipo</th>
-            <th>Jugador</th>
-          </tr>
+          <Tr>
+            <Th>Equipo</Th>
+            <Th>Jugador</Th>
+            <Th>Seleccion</Th>
+          </Tr>
         </thead>
         <tbody>
           {
           teams.map((team) => (
             <FilaEquipos
               team={team}
-              key={team.equipo}/>
+              key={team.equipo}
+              pinEquipo={pinEquipo}/>
           ))
           }
         </tbody>
