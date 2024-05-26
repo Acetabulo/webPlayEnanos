@@ -2,8 +2,21 @@ import React, { useContext } from "react";
 import { Tabla,Tr,Th } from "../css/Formats";
 import { FilaEquipos } from "./FilaEquipos";
 import { equiposContext } from "./Contextos";
-const Tablaequipos= () => {
-  const {teams, pinEquipo} = useContext(equiposContext);
+const Tablaequipos= ({verCompletado=false}) => {
+  const {teams, pinEquipo } = useContext(equiposContext);
+  const equipoTablafilas=(pinValor)=>{
+    return(
+      teams
+      .filter(team=>team.pin === pinValor)
+      .map((team) => (
+            <FilaEquipos
+              team={team}
+              key={team.equipo}
+              pinEquipo={pinEquipo}/>
+          ))
+    )
+  }
+
   return (
       <Tabla>
         <thead>
@@ -11,16 +24,13 @@ const Tablaequipos= () => {
             <Th>Equipo</Th>
             <Th>Jugador</Th>
             <Th>Seleccion</Th>
+            <Th></Th>
+            <Th></Th>
           </Tr>
         </thead>
         <tbody>
           {
-          teams.map((team) => (
-            <FilaEquipos
-              team={team}
-              key={team.equipo}
-              pinEquipo={pinEquipo}/>
-          ))
+          equipoTablafilas(verCompletado)
           }
         </tbody>
       </Tabla>

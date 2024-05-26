@@ -4,13 +4,14 @@ import InputEquipos from "./InputEquipos";
 import Tablaequipos from "./Tablaequipos";
 const ListaEquipos = () => {
   return (
-    <div>
+    <div className="ListaEquipos">
       <h3>
         <FaPlaystation />
         LISTA DE EQUIPOS
       </h3>
-      <Tablaequipos />
       <InputEquipos />
+      <Tablaequipos />
+      <Tablaequipos verCompletado={true} />
       </div>
   );
 };

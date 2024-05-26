@@ -12,6 +12,12 @@ export const FilaEquipos = ({team, pinEquipo}) => {
             onChange={() => pinEquipo(team)}
           />
         </Td>
+        
+        {!team.pin&&(
+          <Td><button>E</button></Td>)}
+        {!team.pin&&(  
+        <Td><button>C</button></Td>
+        )}        
       </Tr>
     );
   };

@@ -26,21 +26,21 @@ const Formulario = styled.form`
   }
 `;
 const Tabla = styled.table`
-  text-aling: center;
-  font-weigth: bold;
-  margin: auto;
   border-style: solid;
   border-width: 0.3em;
-  border-radius: 0.5em;
+  border-radius: 1em;
   border-color: #271557;
+  margin: 0.5em;
   padding: 1em;
-  width: 30%;
-  gap: 0.5em;
+  width: 50%;
+  high: auto;
+  content: center;
   display: center;
   float: left;
+  gap: 0.5em;
+  text-aling: center;
+  font-weigth: bold;
   position: relative;
-  z-index: 90;
-  margin: 0.3em 4em 1em 1em;
 `;
 
 const Th = styled.th`
