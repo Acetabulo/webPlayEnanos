@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import {Tr, Td} from '../css/Formats'
+import { equiposContext } from "./Contextos";
 export const FilaEquipos = ({team, pinEquipo}) => {
-    return (
-      <Tr>
+const {eliminaEquipo} = useContext(equiposContext)
+const limpiarFila=()=>{
+  //e.preventDefault();
+  if(window.confirm('Seguro de borrar registro')){
+    eliminaEquipo(team);
+  }
+}
+  return (
+      <Tr key={team.equipo}>
         <Td>{team.equipo}</Td>
         <Td>{team.jugador}</Td>
         <Td>
@@ -14,10 +22,11 @@ export const FilaEquipos = ({team, pinEquipo}) => {
         </Td>
         
         {!team.pin&&(
-          <Td><button>E</button></Td>)}
-        {!team.pin&&(  
-        <Td><button>C</button></Td>
-        )}        
+          <Td><button >E</button></Td>
+        )}
+  
+        <Td><button onClick={limpiarFila}> C </button></Td>
+              
       </Tr>
     );
   };

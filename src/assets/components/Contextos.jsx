@@ -17,11 +17,24 @@ const ContextoEquipos = ({ children }) => {
 
   const pinEquipo = (casilla) => {
     setTeams(
-      teams.map((t)=>(t.equipo === casilla.equipo ? {...t, pin:!t.pin}:t))
-    )  }
+      teams.map((t) =>
+        t.equipo === casilla.equipo ? { ...t, pin: !t.pin } : t
+      )
+    );
+  };
+
+  const eliminaEquipo = (eq) => {
+    
+      setTeams(
+        teams.filter(t =>
+          t.equipo !== eq.equipo
+        )
+      );
+    }
 
   return (
-    <equiposContext.Provider value={{ teams, TablaInicial, actualizaEquipo, pinEquipo }}>
+    <equiposContext.Provider
+      value={{ teams, TablaInicial, actualizaEquipo, pinEquipo, eliminaEquipo }}>
       {children}
     </equiposContext.Provider>
   );
