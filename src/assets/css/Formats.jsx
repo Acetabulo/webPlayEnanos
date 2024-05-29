@@ -13,7 +13,7 @@ const Formulario = styled.form`
   border-color: #271557;
   margin: 0.5em;
   padding: 1em;
-  width: 50%;
+  width: 40%;
   high: auto;
   content: center;
   align: center;
